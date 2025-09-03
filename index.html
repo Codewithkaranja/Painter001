@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jose Grafix - Professional Painting Services</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-blue: #0a2463;
+        --sage-green: #8a9a5b;
+        --terracotta: #cb5a3c;
+        --light-gray: #f5f5f5;
+        --dark-gray: #333333;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: var(--dark-gray);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-blue);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-circle {
+        width: 40px;
+        height: 40px;
+        background: var(--terracotta);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+      }
+
+      .logo-text {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--primary-blue);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 25px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--dark-gray);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--terracotta);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--primary-blue);
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            rgba(10, 36, 99, 0.7),
+            rgba(10, 36, 99, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1587923623987-c7e4083beb23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80")
+            no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+        margin-top: 70px;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--terracotta);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: 2px solid var(--terracotta);
+      }
+
+      .btn:hover {
+        background: transparent;
+        color: var(--terracotta);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+        margin-left: 15px;
+      }
+
+      .btn-outline:hover {
+        background: var(--white);
+        color: var(--terracotta);
+      }
+
+      /* Intro Section */
+      .intro {
+        padding: 80px 0;
+        background: var(--white);
+      }
+
+      .intro-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .intro-text {
+        flex: 1;
+      }
+
+      .intro-image {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .intro-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 80px 0;
+        background: var(--light-gray);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 15px;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--terracotta);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        color: var(--terracotta);
+        margin-bottom: 20px;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 80px 0;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .project-card {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 250px;
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .project-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(10, 36, 99, 0.9));
+        padding: 20px;
+        color: var(--white);
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 80px 0;
+        background: var(--light-gray);
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .testimonial-card {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 15px;
+      }
+
+      .author-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .stars {
+        color: gold;
+        margin-top: 5px;
+      }
+
+      /* CTA Section */
+      .cta {
+        padding: 80px 0;
+        background: var(--sage-green);
+        color: var(--white);
+        text-align: center;
+      }
+
+      .cta h2 {
+        color: var(--white);
+      }
+
+      .cta .btn {
+        background: var(--white);
+        color: var(--sage-green);
+        border-color: var(--white);
+      }
+
+      .cta .btn:hover {
+        background: transparent;
+        color: var(--white);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary-blue);
+        color: var(--white);
+        padding: 60px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-column h3 {
+        color: var(--white);
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul li a {
+        color: var(--light-gray);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--terracotta);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--white);
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background: var(--terracotta);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .intro-content {
+          flex-direction: column;
+        }
+
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        nav {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 80%;
+          height: calc(100vh - 70px);
+          background: var(--primary-blue);
+          transition: all 0.3s;
+        }
+
+        nav.active {
+          left: 0;
+        }
+
+        nav ul {
+          flex-direction: column;
+          padding: 30px;
+        }
+
+        nav ul li {
+          margin: 0 0 20px 0;
+        }
+
+        nav ul li a {
+          color: var(--white);
+          font-size: 1.1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .btn {
+          display: block;
+          margin: 10px auto;
+          width: 80%;
+        }
+
+        .btn-outline {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <div class="logo-circle">JG</div>
+          <div class="logo-text">Jose Grafix</div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1>Transforming Spaces with Professional Painting</h1>
+        <p>
+          With over 15 years of experience, Jose Grafix delivers exceptional
+          painting services with a commitment to quality, reliability, and
+          on-time project completion.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn">Request a Free Quote</a>
+          <a href="#projects" class="btn btn-outline">View Our Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro" id="about">
+      <div class="container">
+        <div class="intro-content">
+          <div class="intro-text">
+            <h2>Expertise You Can Trust</h2>
+            <p>
+              Jose Grafix brings over 15 years of professional painting
+              experience to every project. Our reputation is built on meticulous
+              attention to detail, use of premium materials, and an unwavering
+              commitment to meeting deadlines.
+            </p>
+            <p>
+              We understand that your home or business is your most valuable
+              asset. That's why we treat every project with the care and
+              professionalism it deserves, ensuring minimal disruption and
+              flawless results.
+            </p>
+            <p>
+              Our team of skilled painters is trained in the latest techniques
+              and uses only the highest quality paints and materials to ensure
+              your space not only looks beautiful but stands the test of time.
+            </p>
+          </div>
+          <div class="intro-image">
+            <img
+              src="https://images.unsplash.com/photo-1566669437686-9c5c91df20a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Professional Painter"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>
+            Comprehensive painting solutions for residential and commercial
+            properties
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>Residential Painting</h3>
+            <p>
+              Transform your living space with our interior and exterior house
+              painting services. We help you choose the perfect colors and
+              finishes to match your style.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Commercial Painting</h3>
+            <p>
+              Enhance your business environment with our professional commercial
+              painting services. Minimal disruption and exceptional results
+              guaranteed.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-roller"></i>
+            </div>
+            <h3>Special Finishes</h3>
+            <p>
+              From faux finishes to textured walls and epoxy coatings, we create
+              unique visual effects that make your space truly stand out.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Surface Preparation</h3>
+            <p>
+              Proper preparation is key to a lasting finish. We provide thorough
+              surface preparation including cleaning, sanding, and priming.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-brush"></i>
+            </div>
+            <h3>Cabinets & Trim</h3>
+            <p>
+              Refresh your kitchen, bathroom, or interior with our precise
+              cabinet and trim painting services for a like-new appearance.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3>Color Consultation</h3>
+            <p>
+              Not sure about colors? Our experts will help you choose the
+              perfect palette to complement your space and reflect your style.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Projects</h2>
+          <p>
+            See examples of our exceptional workmanship and attention to detail
+          </p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="County Assembly Building"
+            />
+            <div class="project-overlay">
+              <h3>Machakos County Assembly</h3>
+              <p>Exterior Painting</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Modern Living Room"
+            />
+            <div class="project-overlay">
+              <h3>Westlands Residence</h3>
+              <p>Interior Painting</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1560448076-3f6f44b6b4a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Office Building"
+            />
+            <div class="project-overlay">
+              <h3>Nairobi Office Complex</h3>
+              <p>Commercial Painting</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1572883781464-1cb2bb4456f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Kitchen Cabinets"
+            />
+            <div class="project-overlay">
+              <h3>Karen Residence</h3>
+              <p>Cabinet Refinishing</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="House Exterior"
+            />
+            <div class="project-overlay">
+              <h3>Lavington Home</h3>
+              <p>Exterior Painting</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1537721664796-76a80286df64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Restaurant Interior"
+            />
+            <div class="project-overlay">
+              <h3>City Restaurant</h3>
+              <p>Commercial Interior</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Client Testimonials</h2>
+          <p>Hear what our satisfied clients have to say about our work</p>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              <p>
+                "Jose Grafix transformed our office building. The team was
+                professional, efficient, and the quality of work exceeded our
+                expectations. We've received countless compliments on the new
+                look."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="James Mulandi"
+                />
+              </div>
+              <div>
+                <h4>James Mulandi</h4>
+                <p>Nairobi Office Complex</p>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              <p>
+                "I hired Jose Grafix to paint my entire house interior. They
+                were meticulous, clean, and finished ahead of schedule. The
+                color consultation service was invaluable - I couldn't be
+                happier with the results!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  alt="Sarah Kimani"
+                />
+              </div>
+              <div>
+                <h4>Sarah Kimani</h4>
+                <p>Westlands Residence</p>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              <p>
+                "The County Assembly project was completed on time and within
+                budget. Jose Grafix handled the complexity of painting such a
+                large building with professionalism and expertise. Highly
+                recommended!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img
+                  src="https://randomuser.me/api/portraits/men/22.jpg"
+                  alt="David Omondi"
+                />
+              </div>
+              <div>
+                <h4>David Omondi</h4>
+                <p>Machakos County Assembly</p>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <h2>Ready to Transform Your Space?</h2>
+        <p>
+          Contact us today for a free, no-obligation quote. Let's discuss your
+          project and how we can bring your vision to life.
+        </p>
+        <a href="#contact-form" class="btn">Get Your Free Quote</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Jose Grafix</h3>
+            <p>
+              Professional painting and finishing services with a commitment to
+              quality, reliability, and on-time delivery.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Residential Painting</a></li>
+              <li><a href="#">Commercial Painting</a></li>
+              <li><a href="#">Special Finishes</a></li>
+              <li><a href="#">Surface Preparation</a></li>
+              <li><a href="#">Color Consultation</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><i class="fas fa-phone"></i> +254 712 345 678</li>
+              <li><i class="fas fa-envelope"></i> info@josegrafix.com</li>
+              <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+              <li>
+                <i class="fab fa-whatsapp"></i> WhatsApp: +254 712 345 678
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Jose Grafix. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuBtn = document.querySelector(".mobile-menu-btn");
+      const nav = document.querySelector("nav");
+
+      menuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        menuBtn.innerHTML = nav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
