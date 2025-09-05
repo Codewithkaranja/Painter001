@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
     <style>
       :root {
         --primary-blue: blue;
@@ -52,156 +53,235 @@
         padding: 0 15px;
       }
 
-      /* Header & Navigation */
+      /* ================= HERO ================= */
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+        background: #111;
+      }
+
+      /* Background reveal animation */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80")
+          no-repeat center center/cover;
+        clip-path: inset(100% 0 0 0);
+        animation: revealImage 2.5s ease forwards;
+        z-index: 0;
+      }
+
+      @keyframes revealImage {
+        to {
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      /* Dark overlay */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+        animation: fadeInUp 2s ease;
+      }
+
+      .paint-logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        display: inline-block;
+        position: relative;
+        animation: drip 2s ease forwards;
+        color: #fff;
+      }
+
+      .paint-logo::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 12px;
+        height: 20px;
+        background: #ff4d4d;
+        border-radius: 50%;
+        transform: translateX(-50%) scaleY(0);
+        animation: drop 1.8s ease 1s forwards;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #ff4d4d, #ffb347, #4facfe, #43e97b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: colorShift 8s linear infinite;
+        background-size: 200% 200%;
+      }
+
+      @keyframes colorShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 200% 50%;
+        }
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        color: #f1f1f1;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        background: #ff4d4d;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: #ffb347;
+        transform: translateY(-3px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: #333;
+      }
+
+      @keyframes drip {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes drop {
+        to {
+          transform: translateX(-50%) scaleY(1);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ================= NAV ================= */
       header {
-        background-color: rgba(255, 255, 255, 0.726);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        width: 100%;
+        position: absolute;
         top: 0;
-        z-index: 1000;
+        width: 100%;
+        z-index: 10;
+        padding: 20px;
       }
 
       .header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 0;
       }
-      /*#image-logo{
-       width: 10px;
-        height: -10px;
-        background: var(--terracotta);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 10px;
-        margin-top: 50px;
-        font-weight: bold;
-        padding-left:40px ;
-        padding-bottom: 60px;
-        color: white;  
-        font-size: 18px;
-      }*/
 
       .logo {
         display: flex;
         align-items: center;
-      }
-
-      .logo-circle {
-        width: 40px;
-        height: 40px;
-        background: purple;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 10px;
         font-weight: bold;
+        font-size: 1.5rem;
         color: white;
-        font-size: 18px;
-      }
-
-      .logo-text {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        font-size: 22px;
-        color: var(--primary-blue);
       }
 
       nav ul {
         display: flex;
         list-style: none;
-      }
-
-      nav ul li {
-        margin-left: 25px;
+        gap: 20px;
       }
 
       nav ul li a {
+        color: white;
         text-decoration: none;
-        color: var(--dark-gray);
         font-weight: 500;
-        transition: color 0.3s;
+        transition: 0.3s;
       }
 
       nav ul li a:hover {
-        color: blue;
+        color: #ff4d4d;
       }
 
       .mobile-menu-btn {
         display: none;
         background: none;
         border: none;
-        font-size: 24px;
-        cursor: pointer;
-        color: var(--primary-blue);
-      }
-
-      /* Hero Section */
-      .hero {
-        background: linear-gradient(
-            rgba(10, 36, 99, 0.7),
-            rgba(10, 36, 99, 0.7)
-          ),
-          url("https://media.istockphoto.com/id/172348169/photo/finishing-a-big-work.webp?a=1&b=1&s=612x612&w=0&k=20&c=1kriX3GqjHKFjLPfVrL4h2jwBV2ZdWIDO0yQXqYtSEY=")
-            no-repeat center center/cover;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        color: var(--white);
-        margin-top: 70px;
-      }
-
-      .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--white);
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-      }
-
-      .btn {
-        display: inline-block;
-        padding: 12px 30px;
-        background: purple;
-        color: var(--white);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        transition: all 0.3s;
-        border: 2px solid purple;
-      }
-
-      .btn:hover {
-        background: var(--terracotta);
         color: white;
+        font-size: 1.8rem;
       }
 
-      .btn-outline {
-        background: transparent;
-        color: var(--white);
-        border: 2px solid var(--white);
-        margin-left: 15px;
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+        nav {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 60%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.9);
+          transition: 0.3s;
+          padding-top: 50px;
+        }
+        nav.active {
+          left: 0;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 30px;
+        }
       }
-
-      .btn-outline:hover {
-        background: var(--white);
-        color: var(--terracotta);
-      }
-
       /* Intro Section */
       .intro {
         padding: 80px 0;
@@ -572,23 +652,19 @@
       }
     </style>
   </head>
+
   <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
       <div class="container header-container">
-        <div class="logo">
-          <div class="logo-circle" id="image-logo">JG<!-- <img src="data:image/png;base64,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" alt="">--></div>
-          <div class="logo-text">Jose Grafix</div>
-        </div>
-        <button class="mobile-menu-btn">
-          <i class="fas fa-bars"></i>
-        </button>
+        <div class="logo">🎨 JG</div>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         <nav>
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#projects">Portfolio</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -596,17 +672,21 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
-      <div class="container hero-content">
+      <div class="hero-content">
+        <div class="paint-logo">Jose Grafix</div>
         <h1>Transforming Spaces with Professional Painting</h1>
         <p>
-          With over 15 years of experience, Jose Grafix delivers exceptional
-          painting services with a commitment to quality, reliability, and
-          on-time project completion.
+          Over 15 years of excellence in residential, commercial, and artistic
+          painting solutions.
         </p>
         <div class="hero-buttons">
-          <a href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer%20I%20need%20a%20quote%220for%20your%20Services" class="btn">Request a Free Quote</a>
+          <a
+            href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer,%20I%20need%20a%20quote%20for%20your%20Services"
+            class="btn"
+            >Request a Free Quote</a
+          >
           <a href="#projects" class="btn btn-outline">View Our Work</a>
         </div>
       </div>
@@ -904,7 +984,11 @@
           Contact us today for a free, no-obligation quote. Let's discuss your
           project and how we can bring your vision to life.
         </p>
-        <a href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer%20I%20need%20a%20quote%220for%20your%20Services" class="btn">Get Your Free Quote</a>
+        <a
+          href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer,%20I%20need%20a%20quote%20for%20your%20Services"
+          class="btn"
+          >Get Your Free Quote</a
+        >
       </div>
     </section>
 
@@ -948,31 +1032,52 @@
           <div class="footer-column">
             <h3>Contact Us</h3>
             <ul>
-              <li><i class="fas fa-phone"></i> <a href="tel:+254799014845"> +254799 014 845</a></li>
-              <li><i class="fas fa-envelope"></i> <a href="mailto:josegrafix@gmail.com">info@josegrafix.com</a></li>
-              <li><i class="fas fa-map-marker-alt"></i><a
-                    href="https://www.google.com/maps/search/cooperative+bank+machakos+town/@-1.5212126,37.2667991,16z?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D"
-                    target="_blank"
-                  >
-                  3rd Floor, Town House (Coop Bank), Machakos Town
-                  </a> </li>
               <li>
-                <i class="fab fa-whatsapp"></i> <a href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer%20I%20need%20a%20quote%220for%20your%20Services">+254 712 345 678</a>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+254799014845"> +254799 014 845</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:josegrafix@gmail.com">info@josegrafix.com</a>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i
+                ><a
+                  href="https://www.google.com/maps/search/cooperative+bank+machakos+town/@-1.5212126,37.2667991,16z?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                >
+                  3rd Floor, Town House (Coop Bank), Machakos Town
+                </a>
+              </li>
+              <li>
+                <i class="fab fa-whatsapp"></i>
+                <a
+                  href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer,%20I%20need%20a%20quote%20for%20your%20Services"
+                  >+254 799 014 845</a
+                >
               </li>
             </ul>
           </div>
         </div>
         <div class="copyright">
           <p>&copy; 2025 Jose Grafix. All Rights Reserved.</p>
-          <p><p>
-        Crafted with <span style="color: red">&#10084;</span> by
-        SarahDevs
-      </p></p> 
+          <p>
+            Crafted with <span style="color: red">&#10084;</span> by
+            <a
+              href="https://wa.me/254723562484?text=Hello%20there,%20I%20need%20Website%20Services"
+            >
+              SaharaDevs
+            </a>
+          </p>
         </div>
       </div>
     </footer>
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer%20I%20need%20a%20quote%220for%20your%20Services" class="whatsapp-float" target="_blank">
+    <a
+      href="https://wa.me/254799014845?text=Hello%20Paint%20Engineer,%20I%20need%20a%20quote%20for%20your%20Services"
+      class="whatsapp-float"
+      target="_blank"
+    >
       <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -988,13 +1093,46 @@
           : '<i class="fas fa-bars"></i>';
       });
 
-      // Close menu when clicking on a link
+      // Close menu on link click
       document.querySelectorAll("nav a").forEach((link) => {
         link.addEventListener("click", () => {
           nav.classList.remove("active");
           menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         });
       });
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Mobile menu toggle
+
+      /*menuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        menuBtn.innerHTML = nav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });*/
 
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
