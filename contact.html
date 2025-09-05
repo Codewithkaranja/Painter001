@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Jose Grafix</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #f9f9f9;
+        color: #222;
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #f9f9f9, #ffffff);
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        align-items: start;
+      }
+
+      .contact-info {
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-info h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #222;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .info-item i {
+        font-size: 1.5rem;
+        color: #4facfe;
+        margin-right: 15px;
+      }
+
+      .info-item p {
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .social-links {
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        font-size: 1.2rem;
+        margin-right: 15px;
+        color: #4facfe;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: #43e97b;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-form h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #222;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: #4facfe;
+        outline: none;
+      }
+
+      .form-group textarea {
+        resize: none;
+        height: 120px;
+      }
+
+      .btn-submit {
+        background: linear-gradient(135deg, #4facfe, #43e97b);
+        color: #fff;
+        border: none;
+        padding: 14px 20px;
+        font-size: 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        width: 100%;
+      }
+
+      .btn-submit:hover {
+        transform: scale(1.03);
+      }
+
+      /* Footer */
+      footer {
+        background: #111;
+        color: #ccc;
+        text-align: center;
+        padding: 25px 15px;
+        margin-top: 60px;
+      }
+
+      footer p {
+        margin-bottom: 8px;
+      }
+
+      footer a {
+        color: #4facfe;
+        margin: 0 8px;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: #43e97b;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .contact-section {
+          padding: 70px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="contact-container">
+        <!-- Info -->
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>
+              <a
+                href="https://www.google.com/maps/search/cooperative+bank+machakos+town/@-1.5212126,37.2667991,16z?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+              >
+                3rd Floor, Town House (Coop Bank), Machakos Town
+              </a>
+            </p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <p><a href="tel:+254799014845"> +254 799 014 845</a></p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <p>
+              <a href="mailto:josedesigns@gmail.com">info@josedesigns.com</a>
+            </p>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form">
+          <h2>Send a Message</h2>
+          <form
+            action="https://formsubmit.co/josedesigns@gmail.com"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name">Full Name*</label>
+              <input type="text" id="name" placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address*</label>
+              <input type="email" id="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number*</label>
+              <input type="tel" id="phone" placeholder="+254 700 000000" />
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message*</label>
+              <textarea
+                id="message"
+                placeholder="Type your message here..."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Jose Designs. All Rights Reserved.</p>
+      <p>
+        <a href="index.html">Home</a> | <a href="index.html">Services</a> |
+        <a href="contact.html">Contact</a>
+      </p>
+      <p>
+        Crafted with <span style="color: red">&#10084;</span> by
+        <a
+          href="https://wa.me/254723562484?text=Hello%20there,%20I%20need%20Website%20Services"
+        >
+          SaharaDevs
+        </a>
+      </p>
+    </footer>
+
+    <!-- JS Validation -->
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          let name = document.getElementById("name");
+          let email = document.getElementById("email");
+          let phone = document.getElementById("phone");
+          let message = document.getElementById("message");
+
+          if (
+            !name.value.trim() ||
+            !email.value.trim() ||
+            !phone.value.trim() ||
+            !message.value.trim()
+          ) {
+            alert("Please fill out all required fields.");
+            return;
+          }
+
+          if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)) {
+            alert("Please enter a valid email address.");
+            return;
+          }
+
+          if (!/^[0-9+ ]{9,15}$/.test(phone.value)) {
+            alert("Please enter a valid phone number.");
+            return;
+          }
+
+          alert("Thank you, " + name.value + "! Your message has been sent.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
