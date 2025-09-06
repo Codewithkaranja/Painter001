@@ -18,7 +18,12 @@
       }
 
       body {
-        background: #f9f9f9;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.103),
+            rgba(255, 255, 255, 0.055)
+          ),
+          url("https://media.istockphoto.com/id/611183852/photo/colorful-townhomes-in-downtown-albuquerque-new-mexico-usa.webp?a=1&b=1&s=612x612&w=0&k=20&c=_7IXIRpQTDGOpOJ_aqWj5UWHpsARubZBZaZeLakQ-fM=")
+            center/cover no-repeat fixed;
         color: #222;
         line-height: 1.6;
       }
@@ -31,7 +36,7 @@
       /* Contact Section */
       .contact-section {
         padding: 100px 20px;
-        background: linear-gradient(135deg, #f9f9f9, #ffffff);
+        background: linear-gradient(135deg, #f9f9f900, #ffffff00);
       }
 
       .contact-container {
@@ -41,16 +46,32 @@
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 40px;
         align-items: start;
+        opacity: 0;
+        transform: translateY(-50px);
+        animation: fallDown 1s ease forwards;
       }
 
-      .contact-info {
-        background: #fff;
+      @keyframes fallDown {
+        from {
+          opacity: 0;
+          transform: translateY(-80px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .contact-info,
+      .contact-form {
+        background: #fffffffd;
         padding: 40px;
         border-radius: 20px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       }
 
-      .contact-info h2 {
+      .contact-info h2,
+      .contact-form h2 {
         font-size: 2rem;
         margin-bottom: 20px;
         color: #222;
@@ -89,19 +110,6 @@
       }
 
       /* Contact Form */
-      .contact-form {
-        background: #fff;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-      }
-
-      .contact-form h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        color: #222;
-      }
-
       .form-group {
         margin-bottom: 20px;
       }
@@ -201,7 +209,7 @@
           </div>
           <div class="info-item">
             <i class="fas fa-phone"></i>
-            <p><a href="tel:+254799014845"> +254 799 014 845</a></p>
+            <p><a href="tel:+254799014845"> +254799 014 845</a></p>
           </div>
           <div class="info-item">
             <i class="fas fa-envelope"></i>
@@ -219,10 +227,7 @@
         <!-- Form -->
         <div class="contact-form">
           <h2>Send a Message</h2>
-          <form
-            action="https://formsubmit.co/josedesigns@gmail.com"
-            method="POST"
-          >
+          <form id="contactForm">
             <div class="form-group">
               <label for="name">Full Name*</label>
               <input type="text" id="name" placeholder="Your Name" />
@@ -250,9 +255,9 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2025 Jose Designs. All Rights Reserved.</p>
+      <p>&copy; 2025 Jose Grafix. All Rights Reserved.</p>
       <p>
-        <a href="index.html">Home</a> | <a href="index.html">Services</a> |
+        <a href="index.html">Home</a> | <a href="services.html">Services</a> |
         <a href="contact.html">Contact</a>
       </p>
       <p>
